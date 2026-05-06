@@ -5,8 +5,9 @@
 
   &__header {
     background: #F7EEE4;
-    padding: 16px 0;
-    width: 100%;
+    padding: 16px 40px;
+    max-width: 1440px;
+    margin: 0 auto;
     
     &-inner {
       max-width: 1440px;
@@ -15,6 +16,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
     }
     
     h2 {
