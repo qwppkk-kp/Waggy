@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&display=swap');
+
+.header {
+  background: white;
+  font-family: "Chilanka", cursive;
+}
+
+.header .container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.header__top-separator {
+  width: 100%;
+  height: 2px;
+  background-color: #b3b3b31c;
+  margin-bottom: 20px;
+}
+
+/* Логотип */
+.header__logo {
+  height: 70px;
+}
+
+.header__logo-icon {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Поиск */
+.header__search {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 40px;
+}
+
+.header__search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.header__search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #41403E;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.header__search-input {
+  width: 100%;
+  padding: 12px 20px 12px 42px;
+  border: 1px solid #b3b3b37a;
+  border-radius: 4px;
+  font-family: "Chilanka", cursive;
+  font-size: 14px;
+  color: #8a014583;
+  background: #ffffff;
+  
+  &::placeholder {
+    color: #908F8D; 
+  }
+  &:focus {
+    outline: none;
+    border-color: #DEAD6F; 
+  }
+}
+
+/* Контакты */
+.header__contacts {
+  display: flex;
+  gap: 30px;
+}
+
+.header__contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__contact-label {
+  font-size: 16px;
+  color: #908F8D;
+  margin-bottom: 4px;
+}
+
+.header__contact-value {
+  font-size: 18px;
+  color: #41403E;
+}
+
+.header__nav-list {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 15px 0;
+  position: relative;
+}
+
+.header__nav-link {
+  text-decoration: none;
+  color: #41403E;
+  font-size: 16px;
+  padding: 8px 0;
+  transition: color 0.3s;
+  
+  &:hover {
+    color: #DEAD6F;
+  }
+  
+  &.active {
+    color: #DEAD6F;
+    border-bottom: 2px solid #DEAD6F;
+  }
+}
+
+.header__nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  right: 0; 
+}
+
+.header__nav-icon-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #41403E;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: #DEAD6F;
+  }
+  
+  &.active {
+    color: #DEAD6F;
+    background-color: rgba(222, 173, 111, 0.1);
+  }
+}
+
+.header__nav-icon {
+  width: 20px;
+  height: 20px;
+  color: inherit;
+}
+
+.header__nav-icon-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #DEAD6F;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+@media (max-width: 1024px) {
+  .header .container {
+    padding: 0 20px;
+  }
+  
+  .header__top {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .header__search {
+    order: 3;
+    max-width: 100%;
+    margin: 20px 0 0 0;
+  }
+  
+  .header__contacts {
+    order: 2;
+  }
+  
+  .header__nav-list {
+    gap: 30px;
+  }
+  
+  .header__nav-icons {
+    position: static;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .header__search {
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  .header__contacts {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .header__nav-list {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .header__nav-icons {
+    position: static;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__contacts {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .header__nav-list {
+    gap: 15px;
+  }
+  
+  .header__nav-link {
+    font-size: 14px;
+  }
+  
+  .header__nav-icon-link {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .header__nav-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .header__nav-icon-badge {
+    min-width: 16px;
+    height: 16px;
+    font-size: 10px;
+  }
+}

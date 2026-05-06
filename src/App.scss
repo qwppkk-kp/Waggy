@@ -1,0 +1,289 @@
+$primary-color: #DEAD6F;
+$secondary-color: #41403E;
+$background-color: #F9F3EC;
+$text-color: #41403E;
+$light-gray: #908F8D;
+$border-color: #F7EEE4;
+$white: #FFFFFF;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@mixin button-style {
+  background: $secondary-color;
+  color: $white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Chilanka", cursive;
+  transition: all 0.3s;
+  
+  &:hover {
+    background: $primary-color;
+  }
+}
+
+@mixin input-style {
+  background: $white;
+  border: 1px solid rgba($secondary-color, 0.25);
+  padding: 20px;
+  font-family: "Chilanka", cursive;
+  font-size: 17px;
+  
+  &:focus {
+    border-color: $primary-color;
+    outline: none;
+  }
+  
+  &::placeholder {
+    color: $light-gray;
+  }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Chilanka", cursive;
+}
+
+.text_accent {
+  color: $primary-color;
+}
+
+.container {
+  @include container;
+}
+
+
+.hero {
+  background: $background-color;
+  padding: 80px 0;
+}
+
+.hero__inner {
+  margin: 0 auto;
+  @include flex-center;
+  flex-wrap: wrap;
+  gap: 80px;
+}
+
+.hero__image img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.hero__label {
+  color: $primary-color;
+  font-size: 18px;
+  letter-spacing: 10%;
+}
+
+.hero__title {
+  font-size: 74px;
+  margin: 20px 0 30px;
+  
+  span {
+    color: $primary-color;
+  }
+}
+
+.btn {
+  padding: 28px 74px;
+  border: 1px solid $secondary-color;
+  background: transparent;
+  border-radius: 4px;
+  font-size: 19px;
+  color: $secondary-color;
+  cursor: pointer;
+  font-family: "Chilanka", cursive;
+  transition: all 0.3s;
+}
+
+.hero-slider .btn:hover {
+  background: $primary-color;
+  color: $secondary-color;
+  border-color: $secondary-color;
+}
+
+.offer {
+  background: $background-color;
+  @include flex-column;
+  align-items: center;
+  padding: 150px 0;
+  position: relative;
+  overflow: hidden;
+
+  // Лапки вокруг формы
+  &__paw {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    z-index: 0;
+    
+    &--1 {
+      top: 20px;
+      left: 10%;
+      transform: rotate(-20deg);
+    }
+    
+    &--2 {
+      top: 30%;
+      right: 5%;
+      transform: rotate(45deg);
+    }
+    
+    &--3 {
+      bottom: 10px;
+      left: 15%;
+      transform: rotate(15deg);
+    }
+    
+    &--4 {
+      bottom: 20%;
+      right: 10%;
+      transform: rotate(-30deg);
+    }
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 55px;
+    line-height: 60px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__form {
+    @include flex-column;
+    align-items: center;
+    gap: 10px;
+    width: 640px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__form input {
+    @include input-style;
+    width: 100%;
+  }
+
+  &__form button {
+    @include button-style;
+    padding: 20px;
+    text-transform: uppercase;
+    font-size: 19px;
+    width: 100%;
+  }
+}
+
+.gallery {
+  padding: 85px 10px;
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  .hero {
+    padding: 40px 0;
+  }
+  
+  .hero__title {
+    font-size: 48px;
+  }
+  
+  .btn {
+    padding: 20px 40px;
+  }
+  
+  .offer {
+    padding: 80px 0;
+    
+    &__paw {
+      width: 100px;
+      height: 100px;
+      
+      &--1 {
+        top: 10px;
+        left: 5%;
+      }
+      
+      &--2 {
+        top: 20%;
+        right: 5%;
+      }
+      
+      &--3 {
+        bottom: 10px;
+        left: 5%;
+      }
+      
+      &--4 {
+        bottom: 15%;
+        right: 5%;
+      }
+    }
+    
+    &__title {
+      font-size: 40px;
+      line-height: 45px;
+    }
+    
+    &__form {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+  
+  .gallery__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

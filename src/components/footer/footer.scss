@@ -1,0 +1,16 @@
+.footer {
+  padding: 48px 0;
+  background: #F7EEE4;
+  text-align: center;
+
+  &__copy {
+    color: #908F8D;
+    margin-bottom: 14px;
+    font-size: 18px;
+  }
+
+  &__author {
+    color: #41403E;
+    font-size: 16px;
+  }
+}
