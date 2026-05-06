@@ -152,55 +152,74 @@ function App() {
         </main>
         <Footer />
         
-        {/* Баннер согласия на cookie */}
-        <CookieConsent
-          location="bottom"
-          buttonText="Принять"
-          declineButtonText="Отклонить"
-          enableDeclineButton
-          cookieName="waggyCookieConsent"
-          style={{
-            background: '#F9F3EC',
-            fontFamily: 'Chilanka, cursive',
-            fontSize: '13px',
-            padding: '10px 20px',
-            borderRadius: '8px',
-            margin: '0 20px 20px 20px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-          }}
-          contentStyle={{
-            color: '#41403E',
-            flex: '1',
-            textAlign: 'center',
-          }}
-          buttonStyle={{
-            background: '#DEAD6F',
-            color: '#41403E',
-            fontWeight: 'bold',
-            borderRadius: '4px',
-            padding: '6px 16px',
-            fontFamily: 'Chilanka, cursive',
-            border: 'none',
-            cursor: 'pointer',
-          }}
-          declineButtonStyle={{
-            background: 'transparent',
-            border: '1px solid #41403E',
-            color: '#41403E',
-            borderRadius: '4px',
-            padding: '6px 16px',
-            fontFamily: 'Chilanka, cursive',
-            cursor: 'pointer',
-            marginLeft: '10px',
-          }}
-          expires={365}
-        >
-          Этот сайт использует файлы cookie для улучшения работы. Продолжая использовать сайт, вы соглашаетесь с{' '}
-          <Link to="/privacy-policy" style={{ color: '#DEAD6F', textDecoration: 'underline' }}>
-            политикой конфиденциальности
-          </Link>
-          .
-        </CookieConsent>
+        {/* Баннер согласия на cookie - обернутый в центрирующий div */}
+<div style={{
+  position: 'fixed',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  display: 'flex',
+  justifyContent: 'center',
+  padding: '0 20px 20px 20px',
+  pointerEvents: 'none',
+  zIndex: 999
+}}>
+  <div style={{ 
+    pointerEvents: 'auto', 
+    width: '100%',
+    maxWidth: 'calc(100% - 40px)'
+  }}>
+    <CookieConsent
+      location="none"
+      buttonText="Принять"
+      declineButtonText="Отклонить"
+      enableDeclineButton
+      cookieName="waggyCookieConsent"
+      style={{
+        background: '#F9F3EC',
+        fontFamily: 'Chilanka, cursive',
+        fontSize: '13px',
+        padding: '10px 20px',
+        borderRadius: '8px',
+        margin: 0,
+        boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+        position: 'relative',
+      }}
+      contentStyle={{
+        color: '#41403E',
+        flex: '1',
+        textAlign: 'center',
+      }}
+      buttonStyle={{
+        background: '#DEAD6F',
+        color: '#41403E',
+        fontWeight: 'bold',
+        borderRadius: '4px',
+        padding: '6px 16px',
+        fontFamily: 'Chilanka, cursive',
+        border: 'none',
+        cursor: 'pointer',
+      }}
+      declineButtonStyle={{
+        background: 'transparent',
+        border: '1px solid #41403E',
+        color: '#41403E',
+        borderRadius: '4px',
+        padding: '6px 16px',
+        fontFamily: 'Chilanka, cursive',
+        cursor: 'pointer',
+        marginLeft: '10px',
+      }}
+      expires={365}
+    >
+      Этот сайт использует файлы cookie для улучшения работы. Продолжая использовать сайт, вы соглашаетесь с{' '}
+      <Link to="/privacy-policy" style={{ color: '#DEAD6F', textDecoration: 'underline' }}>
+        политикой конфиденциальности
+      </Link>
+      .
+    </CookieConsent>
+  </div>
+</div>
       </div>
     </Router>
   );
